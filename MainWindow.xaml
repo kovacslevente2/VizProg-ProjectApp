@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TextBlock Text="Biztosítási alkalmazás" VerticalAlignment="Top" Margin="20,10,0,0" FontSize="24" ></TextBlock>
 
+        <TextBlock Text="Felhasználónév: " VerticalAlignment="Top" Margin="40,220,0,0" HorizontalAlignment="Left" > </TextBlock>
+        <TextBox Name="Username" Width="200" Height="25" Margin="140,40,0,0" HorizontalAlignment="Left"> </TextBox>
+
+        <TextBlock Text="Jelszó: " VerticalAlignment="Top" Margin="40,245,0,0" HorizontalAlignment="Left" ></TextBlock>
+        <PasswordBox Name="Password" Width="200" Height="25" Margin="140,100,0,0" HorizontalAlignment="Left"></PasswordBox>
+
+        <Button Content="Bejelentkezés" Width="120" Height="30" Margin="100,65,0,0" Click="LoginButton_Click"/>
     </Grid>
 </Window>

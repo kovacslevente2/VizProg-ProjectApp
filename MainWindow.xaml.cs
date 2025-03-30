@@ -20,5 +20,22 @@ namespace OpenPage
         {
             InitializeComponent();
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string username = Username.Text;
+            string password = Password.Password;
+
+            // Egyszerű hitelesítés (példa)
+            if (username == "admin" && password == "1234")
+            {
+                MessageBox.Show("Sikeres bejelentkezés!", "Üdvözlet", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Hibás felhasználónév vagy jelszó!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
+
