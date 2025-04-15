@@ -21,13 +21,31 @@ namespace OpenPage
             InitializeComponent();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            string username = Username.Text;
-            string password = Password.Password;
 
-            // Egyszerű hitelesítés (példa)
-            if (username == "admin" && password == "1234")
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            string _username = txtUser.Text;
+            string _password = txtPassword.Password;
+
+            //Hitelesítés adatb nélkül
+            if (_username == "admin" && _password == "1234")
             {
                 MessageBox.Show("Sikeres bejelentkezés!", "Üdvözlet", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -38,4 +56,5 @@ namespace OpenPage
         }
     }
 }
+
 
