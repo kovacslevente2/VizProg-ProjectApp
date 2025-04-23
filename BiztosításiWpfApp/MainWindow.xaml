@@ -21,7 +21,7 @@
 
         <Border CornerRadius="10"
            BorderThickness="1"
-            Opacity="0.8">
+            Opacity="0.7">
 
 
             <Border.BorderBrush>
@@ -34,8 +34,8 @@
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="DarkBlue" Offset="0.75"/>
+                    <GradientStop Color="DarkGray" Offset="0."/>
+                    <GradientStop Color="Black" Offset="0.75"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -51,9 +51,9 @@
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="5"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Bejelentkezés"
-                               Foreground="DarkGray"
-                               FontSize="10"
+                    <TextBlock Text="Biztosítási App"
+                               Foreground="Black"
+                               FontSize="15"
                                FontFamily="Montserrat"
                                Grid.Column="0"
                                VerticalAlignment="Center"
@@ -192,7 +192,7 @@
                     <Button x:Name="btnLogin"
                             BorderThickness="0"
                             Content="Bejelentkezés"
-                            Foreground="White"
+                            Foreground="Black"
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"
@@ -200,10 +200,10 @@
                             Click="btnLogin_Click">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#462AD8"/>
+                                <Setter Property="Background" Value="DarkGray"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#28AEED"/>
+                                        <Setter Property="Background" Value="WhiteSmoke"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -219,6 +219,40 @@
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>
+                    </Button>
+                    <Button x:Name="btnRegistration"
+                            BorderThickness="0"
+                            Content="Regisztrálás"
+                            Foreground="Black"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Margin="0,20,0,0"
+                            Click="btnRegistration_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="DarkGray"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="WhiteSmoke"/>
+                                    </Trigger>
+                                             
+                                </Style.Triggers>
+
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="150" Height="40"
+                CornerRadius="20"
+                Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                              HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+
                     </Button>
                     
                     

@@ -21,8 +21,6 @@ namespace OpenPage
             InitializeComponent();
         }
 
-
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -53,6 +51,12 @@ namespace OpenPage
             {
                 MessageBox.Show("Hibás felhasználónév vagy jelszó!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void btnRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrationPage registrationPage = new RegistrationPage();
+            this.Content = registrationPage;
         }
     }
 }
