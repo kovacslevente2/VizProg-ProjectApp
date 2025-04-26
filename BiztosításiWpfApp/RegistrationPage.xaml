@@ -3,11 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
      
       xmlns:local="clr-namespace:OpenPage"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="800"
       Title="RegistrationPage"
+     
        
     >
 
@@ -40,188 +42,415 @@
 
 
             <Grid>
-                <StackPanel Width="250"
-                    Orientation="Vertical"
-                    Margin="0,35,0,0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Biztosítási App"
+               Foreground="Black"
+               FontSize="15"
+               FontFamily="Montserrat"
+               Grid.Column="0"
+               VerticalAlignment="Center"
+               Margin="10,0,0,0"/>
+
+                    <Button x:Name="btnMinimize" 
+            BorderThickness="0"
+            Content="-"
+            Foreground="White"
+            FontSize="16"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            Grid.Column="1"
+            Click="btnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                        CornerRadius="9"
+                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+                    <Button x:Name="btnClose" 
+            
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="2"
+                     Click="btnClose_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#DA34AE"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#C62DAE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+                </Grid>
+
+
+
+                <Grid Grid.Row="1" Margin="50,15,50,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
                     
-                    <TextBlock Text="Felhasználónév"
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
+
+                        <TextBlock Text="Vezetéknév"
                        Foreground="DarkGray"
                        FontSize="12"
                        FontWeight="Medium"
                        FontFamily="Montserrat"
                        Margin="0,35,0,0"/>
 
-                    <TextBox x:Name="txtNewUser"
+                        <TextBox x:Name="txtLastName"
                        FontSize="13"
                        FontWeight="Medium"
                        FontFamily="Montserrat"
-                       Foreground="White" 
+                       Foreground="White"
                        CaretBrush="LightGray"
-                     BorderBrush="DarkGray"
-                     BorderThickness="0,0,0,2"
-                     Height="28"
-                     VerticalContentAlignment="Center"
-                     Margin="0,5,0,0"
-                     Padding="20,0,0,0">
+                       BorderBrush="DarkGray"
+                       BorderThickness="0,0,0,2"
+                       Height="28"
+                       VerticalContentAlignment="Center"
+                       Margin="0,5,0,0"
+                       Padding="20,0,0,0">
+                            <TextBox.Background>
+                                <ImageBrush ImageSource="/Images/user-icon.png"
+                                            Stretch="None"
+      
+                                               AlignmentX="Left"/>
+                            </TextBox.Background>
 
-                        <TextBox.Background>
-                            <ImageBrush ImageSource="/Images/user-icon.png"
-                                Stretch="None"
-                                AlignmentX="Left"/>
-                        </TextBox.Background>
-                    </TextBox>
+                        </TextBox>
 
-                    <TextBlock Text="E-mail"
+                        <TextBlock Text="Utónév"
                        Foreground="DarkGray"
                        FontSize="12"
                        FontWeight="Medium"
                        FontFamily="Montserrat"
                        Margin="0,15,0,0"/>
 
-                    <TextBox x:Name="txtEmail"
+                        <TextBox x:Name="txtFirstName"
                        FontSize="13"
                        FontWeight="Medium"
                        FontFamily="Montserrat"
-                      Foreground="White"
-                        CaretBrush="LightGray"
+                       Foreground="White"
+                       CaretBrush="LightGray"
                        BorderBrush="DarkGray"
-                     BorderThickness="0,0,0,2"
-                     Height="28"
-                     VerticalContentAlignment="Center"
-                     Margin="0,5,0,0"
-                     Padding="20,0,0,0">
+                       BorderThickness="0,0,0,2"
+                       Height="28"
+                       VerticalContentAlignment="Center"
+                       Margin="0,5,0,0"
+                       Padding="20,0,0,0">
 
-                        
-                        <TextBox.Background >
-                            <ImageBrush ImageSource="Images/email.png" 
-                                         Stretch="None"
-                                        AlignmentX="Left"
-                                        AlignmentY="Center"
-                                         ViewportUnits="Absolute"
-                                        Viewport="0,0,16,16" />
-                        </TextBox.Background>
-                    </TextBox>
+                            <TextBox.Background>
+                                <ImageBrush ImageSource="/Images/user-icon.png"
+                Stretch="None"
+      
+                   AlignmentX="Left"/>
+                            </TextBox.Background>
+                        </TextBox>
 
-
-
-                    <TextBlock Text="Jelszó"
+                        <TextBlock Text="Születési dátum"
                        Foreground="DarkGray"
                        FontSize="12"
                        FontWeight="Medium"
                        FontFamily="Montserrat"
                        Margin="0,15,0,0"/>
 
-                    <PasswordBox x:Name="txtNewPassword"
-                         FontSize="13"
-                         FontWeight="Medium"
-                         FontFamily="Montserrat"
-                         Foreground="White"
-                         CaretBrush="LightGray"
-                         BorderBrush="DarkGray"
-                         BorderThickness="0,0,0,2"
-                         Height="28"
-                         VerticalContentAlignment="Center"
-                         Margin="0,5,0,0"
-                         Padding="20,0,0,0">
+                        <DatePicker x:Name="dpBirthDate"
+                                   
+                       FontSize="13"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"
+                       Foreground="Black"
+                       BorderBrush="DarkGray"
+                       BorderThickness="0,0,0,2"
+                       Height="28"
+                       VerticalContentAlignment="Center"
+                       Margin="0,5,0,0"
+                       Padding="20,0,0,0"
+                                    
+                                    >
+                            <DatePicker.Background>
+                                    <ImageBrush ImageSource="/Images/user-icon.png"
+                                     Stretch="None"
+                                                            AlignmentX="Left"/>
+                            </DatePicker.Background>
 
-                        <PasswordBox.Background>
-                            <ImageBrush ImageSource="/Images/key-icon.png"
-                                Stretch="None"
-                                AlignmentX="Left"/>
-                        </PasswordBox.Background>
-                    </PasswordBox>
+                        </DatePicker>
 
-                    <TextBlock Text="Jelszó megerősítése"
+                        <TextBlock Text="Lakhely (város)"
                        Foreground="DarkGray"
                        FontSize="12"
                        FontWeight="Medium"
                        FontFamily="Montserrat"
                        Margin="0,15,0,0"/>
 
-                    <PasswordBox x:Name="txtConfirmPassword"
-                         FontSize="13"
-                         FontWeight="Medium"
-                         FontFamily="Montserrat"
-                         Foreground="White"
-                         CaretBrush="LightGray"
-                         BorderBrush="DarkGray"
-                         BorderThickness="0,0,0,2"
-                         Height="28"
-                         VerticalContentAlignment="Center"
-                         Margin="0,5,0,0"
-                         Padding="20,0,0,0">
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                        <PasswordBox.Background>
-                            <ImageBrush ImageSource="/Images/key-icon.png"
-                                Stretch="None"
-                                AlignmentX="Left"/>
-                        </PasswordBox.Background>
-                    </PasswordBox>
+                            <fa:ImageAwesome Icon="MapMarker" 
+                                            Height="16" 
+                                            Width="16" 
+                                            Foreground="DarkGray"
+                                            Margin="0,0,10,0"
+                                            VerticalAlignment="Center"/>
 
-                    <Button x:Name="btnRegister"
-                    BorderThickness="0"
-                    Content="Regisztráció"
-                    Foreground="Black"
-                    FontSize="12"
-                    FontFamily="Montserrat"
-                    Cursor="Hand"
-                    Margin="0,50,0,0"
-                    Click="btnRegister_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="DarkGray"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="WhiteSmoke"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
+                            <TextBox x:Name="txtCity"
+                                   Grid.Column="1"
+                                   FontSize="13"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Foreground="Black"
+                                   CaretBrush="LightGray"
+                                   BorderBrush="DarkGray"
+                                   BorderThickness="0,0,0,2"
+                                   Height="28"
+                                   VerticalContentAlignment="Center"/>
+                        </Grid>
 
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="150" Height="40"
-                                CornerRadius="20"
-                                Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                    </StackPanel>
 
-                    <Button x:Name="btnBackToLogin"
-                    BorderThickness="0"
-                    Content="Vissza a bejelentkezéshez"
-                    Foreground="Black"
-                    FontSize="12"
-                    FontFamily="Montserrat"
-                    Cursor="Hand"
-                    Margin="0,20,0,0"
-                    Click="btnBackToLogin_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="DarkGray"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="WhiteSmoke"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
+                    <StackPanel Grid.Column="1" Margin="10,34,10,0">
+                        <TextBlock Text="Felhasználónév"
+                           Foreground="DarkGray"
+                           FontSize="12"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"/>
 
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="150" Height="40"
-                                CornerRadius="20"
-                                Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                              HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </StackPanel>
+                        <TextBox x:Name="txtNewUser"
+                           FontSize="13"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"
+                           Foreground="White" 
+                           CaretBrush="LightGray"
+                           BorderBrush="DarkGray"
+                           BorderThickness="0,0,0,2"
+                           Height="28"
+                           VerticalContentAlignment="Center"
+                           Margin="0,5,0,0"
+                           Padding="20,0,0,0">
+
+                            <TextBox.Background>
+                                <ImageBrush ImageSource="/Images/user-icon.png"
+                                    Stretch="None"
+                                    AlignmentX="Left"/>
+                            </TextBox.Background>
+                        </TextBox>
+
+                        <TextBlock Text="Jelszó"
+                           Foreground="DarkGray"
+                           FontSize="12"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"
+                           Margin="0,15,0,0"/>
+
+                        <PasswordBox x:Name="txtNewPassword"
+                           
+                           FontSize="13"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"
+                           Foreground="White"
+                           CaretBrush="LightGray"
+                           BorderBrush="DarkGray"
+                           BorderThickness="0,0,0,2"
+                           Height="28"
+                           VerticalContentAlignment="Center"
+                           Margin="0,5,0,0"
+                           Padding="20,0,0,0">
+
+                            <PasswordBox.Background>
+                                <ImageBrush ImageSource="/Images/key-icon.png"
+                                    Stretch="None"
+                                    AlignmentX="Left"/>
+                            </PasswordBox.Background>
+                        </PasswordBox>
+
+                        <TextBlock Text="Jelszó megerősítése"
+                           Foreground="DarkGray"
+                           FontSize="12"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"
+                           Margin="0,15,0,0"/>
+
+                        <PasswordBox x:Name="txtConfirmPassword"
+                           FontSize="13"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"
+                           Foreground="White"
+                           CaretBrush="LightGray"
+                           BorderBrush="DarkGray"
+                           BorderThickness="0,0,0,2"
+                           Height="28"
+                           VerticalContentAlignment="Center"
+                           Margin="0,5,0,0"
+                           Padding="20,0,0,0">
+
+                            <PasswordBox.Background>
+                                <ImageBrush ImageSource="/Images/key-icon.png"
+                                    Stretch="None"
+                                    AlignmentX="Left"/>
+                            </PasswordBox.Background>
+                        </PasswordBox>
+
+                        <TextBlock Text="E-mail"
+                           Foreground="DarkGray"
+                           FontSize="12"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"
+                           Margin="0,15,0,0"/>
+
+                        <TextBox x:Name="txtEmail"
+                           FontSize="13"
+                           FontWeight="Medium"
+                           FontFamily="Montserrat"
+                           Foreground="White"
+                           CaretBrush="LightGray"
+                           BorderBrush="DarkGray"
+                           BorderThickness="0,0,0,2"
+                           Height="28"
+                           VerticalContentAlignment="Center"
+                           Margin="0,5,0,0"
+                           Padding="20,0,0,0">
+
+                            <TextBox.Background>
+                                <ImageBrush ImageSource="Images/email.png" 
+                                    Stretch="None"
+                                    AlignmentX="Left"
+                                    AlignmentY="Center"
+                                    ViewportUnits="Absolute"
+                                    Viewport="0,0,16,16" />
+                            </TextBox.Background>
+                        </TextBox>
+
+                    </StackPanel>
+                    </Grid>
+
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,30,0,0">
+                        <Button x:Name="btnRegister"
+                                BorderThickness="0"
+                                Content="Regisztráció"
+                                Foreground="Black"
+                                FontSize="12"
+                                FontFamily="Montserrat"
+                                Cursor="Hand"
+                                Margin="0,0,0,20"
+                                Click="btnRegister_Click"
+                                HorizontalAlignment="Center">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="DarkGray"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="WhiteSmoke"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="150" Height="40"
+                                            CornerRadius="20"
+                                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <Button x:Name="btnBackToLogin"
+                                BorderThickness="0"
+                                Content="Vissza a bejelentkezéshez"
+                                Foreground="Black"
+                                FontSize="12"
+                                FontFamily="Montserrat"
+                                Cursor="Hand"
+                                Click="btnBackToLogin_Click"
+                                HorizontalAlignment="Center">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="DarkGray"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="WhiteSmoke"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="150" Height="40"
+                                            CornerRadius="20"
+                                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+                </Grid>
             </Grid>
         </Border>
     </Border>

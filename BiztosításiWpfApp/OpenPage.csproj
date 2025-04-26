@@ -16,6 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.7.25104.5739" />
+	  <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
+	  <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\back-image.jpg" />
     <Resource Include="Images\email.png" />
     <Resource Include="Images\key-icon.png" />

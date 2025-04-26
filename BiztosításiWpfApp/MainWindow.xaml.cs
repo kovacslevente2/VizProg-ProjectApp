@@ -42,10 +42,14 @@ namespace OpenPage
             string _username = txtUser.Text;
             string _password = txtPassword.Password;
 
+            
+
             //Hitelesítés adatb nélkül
             if (_username == "admin" && _password == "1234")
             {
                 MessageBox.Show("Sikeres bejelentkezés!", "Üdvözlet", MessageBoxButton.OK, MessageBoxImage.Information);
+                HomePage homePage = new HomePage();
+                this.Content = homePage;
             }
             else
             {
