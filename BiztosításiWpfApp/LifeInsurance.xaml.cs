@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace OpenPage
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for LifeInsurance.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class LifeInsurance : Page
     {
-        public HomePage()
+        public LifeInsurance()
         {
             InitializeComponent();
         }
@@ -33,11 +33,6 @@ namespace OpenPage
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).WindowState = WindowState.Minimized;
-        }
-
-        private void btnlifeinsurance_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService?.Navigate(new LifeInsurance());
         }
     }
 }

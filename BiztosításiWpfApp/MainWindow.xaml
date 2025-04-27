@@ -34,10 +34,12 @@
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="DarkGray" Offset="0."/>
-                    <GradientStop Color="Black" Offset="0.75"/>
+                    <GradientStop Color="#4a78f9" Offset="0."/>
+                    <GradientStop Color="#265ffe" Offset="0.75"/>
                 </LinearGradientBrush>
             </Border.Background>
+
+        
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -135,7 +137,7 @@
                             Margin="0,35,0,0">
 
                     <TextBlock Text="Felhasználónév"
-                               Foreground="DarkGray"
+                               Foreground="White"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
@@ -146,8 +148,8 @@
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                Foreground="White" 
-                               CaretBrush="LightGray"
-                             BorderBrush="DarkGray"
+                               CaretBrush="White"
+                             BorderBrush="White"
                              BorderThickness="0,0,0,2"
                              Height="28"
                              VerticalContentAlignment="Center"
@@ -164,7 +166,7 @@
                     </TextBox>
 
                     <TextBlock Text="Jelszó"
-                               Foreground="DarkGray"
+                               Foreground="White"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
@@ -175,8 +177,8 @@
                              FontWeight="Medium"
                              FontFamily="Montserrat"
                              Foreground="White"
-                             CaretBrush="LightGray"
-                             BorderBrush="DarkGray"
+                             CaretBrush="White"
+                             BorderBrush="White"
                              BorderThickness="0,0,0,2"
                              Height="28"
                              VerticalContentAlignment="Center"
@@ -193,7 +195,7 @@
                     <Button x:Name="btnLogin"
                             BorderThickness="0"
                             Content="Bejelentkezés"
-                            Foreground="Black"
+                            Foreground="White"
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"
@@ -201,10 +203,10 @@
                             Click="btnLogin_Click">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="DarkGray"/>
+                                <Setter Property="Background" Value="#2926fe"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="WhiteSmoke"/>
+                                        <Setter Property="Background" Value="Gray"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -224,7 +226,7 @@
                     <Button x:Name="btnRegistration"
                             BorderThickness="0"
                             Content="Regisztrálás"
-                            Foreground="Black"
+                            Foreground="White"
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"
@@ -232,10 +234,10 @@
                             Click="btnRegistration_Click">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="DarkGray"/>
+                                <Setter Property="Background" Value="#2926fe"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="WhiteSmoke"/>
+                                        <Setter Property="Background" Value="Gray"/>
                                     </Trigger>
                                              
                                 </Style.Triggers>
