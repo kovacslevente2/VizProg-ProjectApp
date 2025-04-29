@@ -156,86 +156,99 @@
                        FontFamily="Montserrat"
                        Margin="0,35,0,0"/>
 
-                        <TextBox x:Name="txtLastName"
-                       FontSize="13"
-                       FontWeight="Medium"
-                       FontFamily="Montserrat"
-                       Foreground="White"
-                       CaretBrush="White"
-                       BorderBrush="White"
-                       BorderThickness="0,0,0,2"
-                       Height="28"
-                       VerticalContentAlignment="Center"
-                       Margin="0,5,0,0"
-                       Padding="20,0,0,0">
-                            <TextBox.Background>
-                                <ImageBrush ImageSource="/Images/user-icon.png"
-                                            Stretch="None"
-                                            
-                                               AlignmentX="Left"/>
-                            </TextBox.Background>
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                        </TextBox>
+                            <fa:ImageAwesome Icon="User" 
+                                            Height="16" 
+                                            Width="16" 
+                                            Foreground="White"
+                                            Margin="0,0,10,0"
+                                            VerticalAlignment="Center"/>
+
+                            <TextBox x:Name="txtLastName"
+                                   Grid.Column="1"
+                                   FontSize="13"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Foreground="Black"
+                                   CaretBrush="White"
+                                   BorderBrush="White"
+                                   BorderThickness="0,0,0,2"
+                                   Height="28"
+                                   VerticalContentAlignment="Center"/>
+                        </Grid>
 
                         <TextBlock Text="Utónév"
-                       Foreground="DarkGray"
+                       Foreground="White"
                        FontSize="12"
                        FontWeight="Medium"
                        FontFamily="Montserrat"
                        Margin="0,15,0,0"/>
 
-                        <TextBox x:Name="txtFirstName"
-                       FontSize="13"
-                       FontWeight="Medium"
-                       FontFamily="Montserrat"
-                       Foreground="White"
-                       CaretBrush="LightGray"
-                       BorderBrush="DarkGray"
-                       BorderThickness="0,0,0,2"
-                       Height="28"
-                       VerticalContentAlignment="Center"
-                       Margin="0,5,0,0"
-                       Padding="20,0,0,0">
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                            <TextBox.Background>
-                                <ImageBrush ImageSource="/Images/user-icon.png"
-                Stretch="None"
-      
-                   AlignmentX="Left"/>
-                            </TextBox.Background>
-                        </TextBox>
+                            <fa:ImageAwesome Icon="User" 
+                                            Height="16" 
+                                            Width="16" 
+                                            Foreground="White"
+                                            Margin="0,0,10,0"
+                                            VerticalAlignment="Center"/>
+
+                            <TextBox x:Name="txtFirstName"
+                                   Grid.Column="1"
+                                   FontSize="13"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Foreground="Black"
+                                   CaretBrush="White"
+                                   BorderBrush="White"
+                                   BorderThickness="0,0,0,2"
+                                   Height="28"
+                                   VerticalContentAlignment="Center"/>
+                        </Grid>
 
                         <TextBlock Text="Születési dátum"
-                       Foreground="DarkGray"
+                       Foreground="White"
                        FontSize="12"
                        FontWeight="Medium"
                        FontFamily="Montserrat"
                        Margin="0,15,0,0"/>
 
-                        <DatePicker x:Name="dpBirthDate"
-                                   
-                       FontSize="13"
-                       FontWeight="Medium"
-                       FontFamily="Montserrat"
-                       Foreground="Black"
-                       BorderBrush="DarkGray"
-                       BorderThickness="0,0,0,2"
-                       Height="28"
-                       VerticalContentAlignment="Center"
-                       Margin="0,5,0,0"
-                       Padding="20,0,0,0"
-                                    
-                                    >
-                            <DatePicker.Background>
-                                    <ImageBrush ImageSource="/Images/user-icon.png"
-                                     Stretch="None"
-                                                            AlignmentX="Left"/>
-                            </DatePicker.Background>
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                        </DatePicker>
+                            <fa:ImageAwesome Icon="Calendar" 
+                                            Height="16" 
+                                            Width="16" 
+                                            Foreground="White"
+                                            Margin="0,0,10,0"
+                                            VerticalAlignment="Center"/>
+
+                            <DatePicker x:Name="dpBirthDate"
+                                   Grid.Column="1"
+                                   FontSize="13"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Foreground="Black"
+                                   BorderBrush="White"
+                                   BorderThickness="0,0,0,2"
+                                   Height="28"
+                                   VerticalContentAlignment="Center"/>
+                        </Grid>
 
                         <TextBlock Text="Lakhely (város)"
-                       Foreground="DarkGray"
+                       Foreground="White"
                        FontSize="12"
                        FontWeight="Medium"
                        FontFamily="Montserrat"
@@ -250,7 +263,7 @@
                             <fa:ImageAwesome Icon="MapMarker" 
                                             Height="16" 
                                             Width="16" 
-                                            Foreground="DarkGray"
+                                            Foreground="White"
                                             Margin="0,0,10,0"
                                             VerticalAlignment="Center"/>
 
@@ -260,8 +273,8 @@
                                    FontWeight="Medium"
                                    FontFamily="Montserrat"
                                    Foreground="Black"
-                                   CaretBrush="LightGray"
-                                   BorderBrush="DarkGray"
+                                   CaretBrush="White"
+                                   BorderBrush="White"
                                    BorderThickness="0,0,0,2"
                                    Height="28"
                                    VerticalContentAlignment="Center"/>
@@ -271,115 +284,102 @@
 
                     <StackPanel Grid.Column="1" Margin="10,34,10,0">
                         <TextBlock Text="Felhasználónév"
-                           Foreground="DarkGray"
+                           Foreground="White"
                            FontSize="12"
                            FontWeight="Medium"
                            FontFamily="Montserrat"/>
 
-                        <TextBox x:Name="txtNewUser"
-                           FontSize="13"
-                           FontWeight="Medium"
-                           FontFamily="Montserrat"
-                           Foreground="White" 
-                           CaretBrush="LightGray"
-                           BorderBrush="DarkGray"
-                           BorderThickness="0,0,0,2"
-                           Height="28"
-                           VerticalContentAlignment="Center"
-                           Margin="0,5,0,0"
-                           Padding="20,0,0,0">
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                            <TextBox.Background>
-                                <ImageBrush ImageSource="/Images/user-icon.png"
-                                    Stretch="None"
-                                    AlignmentX="Left"/>
-                            </TextBox.Background>
-                        </TextBox>
+                            <fa:ImageAwesome Icon="User" 
+                                            Height="16" 
+                                            Width="16" 
+                                            Foreground="White"
+                                            Margin="0,0,10,0"
+                                            VerticalAlignment="Center"/>
+
+                            <TextBox x:Name="txtNewUser"
+                                   Grid.Column="1"
+                                   FontSize="13"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Foreground="Black" 
+                                   CaretBrush="White"
+                                   BorderBrush="White"
+                                   BorderThickness="0,0,0,2"
+                                   Height="28"
+                                   VerticalContentAlignment="Center"/>
+                        </Grid>
 
                         <TextBlock Text="Jelszó"
-                           Foreground="DarkGray"
+                           Foreground="White"
                            FontSize="12"
                            FontWeight="Medium"
                            FontFamily="Montserrat"
                            Margin="0,15,0,0"/>
 
-                        <PasswordBox x:Name="txtNewPassword"
-                           
-                           FontSize="13"
-                           FontWeight="Medium"
-                           FontFamily="Montserrat"
-                           Foreground="White"
-                           CaretBrush="LightGray"
-                           BorderBrush="DarkGray"
-                           BorderThickness="0,0,0,2"
-                           Height="28"
-                           VerticalContentAlignment="Center"
-                           Margin="0,5,0,0"
-                           Padding="20,0,0,0">
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                            <PasswordBox.Background>
-                                <ImageBrush ImageSource="/Images/key-icon.png"
-                                    Stretch="None"
-                                    AlignmentX="Left"/>
-                            </PasswordBox.Background>
-                        </PasswordBox>
+                            <fa:ImageAwesome Icon="Lock" 
+                                            Height="16" 
+                                            Width="16" 
+                                            Foreground="White"
+                                            Margin="0,0,10,0"
+                                            VerticalAlignment="Center"/>
+
+                            <PasswordBox x:Name="txtNewPassword"
+                                   Grid.Column="1"
+                                   FontSize="13"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Foreground="Black"
+                                   CaretBrush="White"
+                                   BorderBrush="White"
+                                   BorderThickness="0,0,0,2"
+                                   Height="28"
+                                   VerticalContentAlignment="Center"/>
+                        </Grid>
 
                         <TextBlock Text="Jelszó megerősítése"
-                           Foreground="DarkGray"
+                           Foreground="White"
                            FontSize="12"
                            FontWeight="Medium"
                            FontFamily="Montserrat"
                            Margin="0,15,0,0"/>
 
-                        <PasswordBox x:Name="txtConfirmPassword"
-                           FontSize="13"
-                           FontWeight="Medium"
-                           FontFamily="Montserrat"
-                           Foreground="White"
-                           CaretBrush="LightGray"
-                           BorderBrush="DarkGray"
-                           BorderThickness="0,0,0,2"
-                           Height="28"
-                           VerticalContentAlignment="Center"
-                           Margin="0,5,0,0"
-                           Padding="20,0,0,0">
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                            <PasswordBox.Background>
-                                <ImageBrush ImageSource="/Images/key-icon.png"
-                                    Stretch="None"
-                                    AlignmentX="Left"/>
-                            </PasswordBox.Background>
-                        </PasswordBox>
+                            <fa:ImageAwesome Icon="Lock" 
+                                            Height="16" 
+                                            Width="16" 
+                                            Foreground="White"
+                                            Margin="0,0,10,0"
+                                            VerticalAlignment="Center"/>
 
-                        <TextBlock Text="E-mail"
-                           Foreground="DarkGray"
-                           FontSize="12"
-                           FontWeight="Medium"
-                           FontFamily="Montserrat"
-                           Margin="0,15,0,0"/>
-
-                        <TextBox x:Name="txtEmail"
-                           FontSize="13"
-                           FontWeight="Medium"
-                           FontFamily="Montserrat"
-                           Foreground="White"
-                           CaretBrush="LightGray"
-                           BorderBrush="DarkGray"
-                           BorderThickness="0,0,0,2"
-                           Height="28"
-                           VerticalContentAlignment="Center"
-                           Margin="0,5,0,0"
-                           Padding="20,0,0,0">
-
-                            <TextBox.Background>
-                                <ImageBrush ImageSource="Images/email.png" 
-                                    Stretch="None"
-                                    AlignmentX="Left"
-                                    AlignmentY="Center"
-                                    ViewportUnits="Absolute"
-                                    Viewport="0,0,16,16" />
-                            </TextBox.Background>
-                        </TextBox>
+                            <PasswordBox x:Name="txtConfirmPassword"
+                                   Grid.Column="1"
+                                   FontSize="13"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Foreground="Black"
+                                   CaretBrush="White"
+                                   BorderBrush="White"
+                                   BorderThickness="0,0,0,2"
+                                   Height="28"
+                                   VerticalContentAlignment="Center"/>
+                        </Grid>
 
                     </StackPanel>
                     </Grid>
@@ -400,7 +400,7 @@
                                     <Setter Property="Background" Value="#2926fe"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="Gray"/>
+                                            <Setter Property="Background" Value="LightBlue"/>
                                         </Trigger>
                                     </Style.Triggers>
                                 </Style>
@@ -432,7 +432,7 @@
                                     <Setter Property="Background" Value="#2926fe"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="Gray"/>
+                                            <Setter Property="Background" Value="LightBlue"/>
                                         </Trigger>
                                     </Style.Triggers>
                                 </Style>

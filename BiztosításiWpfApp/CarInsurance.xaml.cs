@@ -1,15 +1,12 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace OpenPage
 {
-    /// <summary>
-    /// Interaction logic for HomePage.xaml
-    /// </summary>
-    public partial class HomePage : Page
+    public partial class CarInsurance : Page
     {
-        public HomePage()
+        public CarInsurance()
         {
             InitializeComponent();
         }
@@ -17,11 +14,6 @@ namespace OpenPage
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Content = new HomePage();
-        }
-
-        private void btncontractmanagement_Click(object sender, RoutedEventArgs e)
-        {
-            Window.GetWindow(this).Content = new ContractManagementPage();
         }
 
         private void btnlifeinsurance_Click(object sender, RoutedEventArgs e)
@@ -44,7 +36,7 @@ namespace OpenPage
             Window.GetWindow(this).Content = new TravelInsurance();
         }
 
-        private void btncontracts_Click(object sender, RoutedEventArgs e)
+        private void btncontractmanagement_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Content = new ContractManagementPage();
         }
@@ -69,9 +61,9 @@ namespace OpenPage
             Window.GetWindow(this).Close();
         }
 
-        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Ez a metódus üresen marad, mivel csak a RadioButton eseménykezelője
+            // TODO: Implement selection changed logic
         }
     }
-}
+} 

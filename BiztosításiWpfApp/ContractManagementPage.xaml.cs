@@ -1,15 +1,11 @@
-﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace OpenPage
 {
-    /// <summary>
-    /// Interaction logic for HomePage.xaml
-    /// </summary>
-    public partial class HomePage : Page
+    public partial class ContractManagementPage : Page
     {
-        public HomePage()
+        public ContractManagementPage()
         {
             InitializeComponent();
         }
@@ -29,24 +25,19 @@ namespace OpenPage
             Window.GetWindow(this).Content = new LifeInsurance();
         }
 
-        private void btncarinsurance_Click(object sender, RoutedEventArgs e)
-        {
-            Window.GetWindow(this).Content = new CarInsurance();
-        }
-
         private void btnhouseinsurance_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Content = new HouseInsurance();
         }
 
+        private void btncarinsurance_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new CarInsurance();
+        }
+
         private void btntravelinsurance_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Content = new TravelInsurance();
-        }
-
-        private void btncontracts_Click(object sender, RoutedEventArgs e)
-        {
-            Window.GetWindow(this).Content = new ContractManagementPage();
         }
 
         private void btndamageevents_Click(object sender, RoutedEventArgs e)
@@ -66,12 +57,7 @@ namespace OpenPage
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Window.GetWindow(this).Close();
-        }
-
-        private void RadioButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Ez a metódus üresen marad, mivel csak a RadioButton eseménykezelője
+            Application.Current.Shutdown();
         }
     }
-}
+} 

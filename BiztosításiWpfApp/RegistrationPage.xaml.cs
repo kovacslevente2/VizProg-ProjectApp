@@ -23,11 +23,10 @@ namespace OpenPage
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             string _username = txtNewUser.Text;
-            string _email = txtEmail.Text;
             string _password = txtNewPassword.Password;
             string _confirmPassword = txtConfirmPassword.Password;
 
-            if (string.IsNullOrWhiteSpace(_username) || string.IsNullOrWhiteSpace(_email) ||
+            if (string.IsNullOrWhiteSpace(_username) || 
                 string.IsNullOrWhiteSpace(_password) || string.IsNullOrWhiteSpace(_confirmPassword))
             {
                 MessageBox.Show("Kérjük, töltse ki az összes mezőt!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);

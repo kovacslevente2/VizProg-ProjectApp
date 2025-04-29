@@ -1,15 +1,11 @@
-﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace OpenPage
 {
-    /// <summary>
-    /// Interaction logic for HomePage.xaml
-    /// </summary>
-    public partial class HomePage : Page
+    public partial class DamageEventsPage : Page
     {
-        public HomePage()
+        public DamageEventsPage()
         {
             InitializeComponent();
         }
@@ -29,24 +25,19 @@ namespace OpenPage
             Window.GetWindow(this).Content = new LifeInsurance();
         }
 
-        private void btncarinsurance_Click(object sender, RoutedEventArgs e)
-        {
-            Window.GetWindow(this).Content = new CarInsurance();
-        }
-
         private void btnhouseinsurance_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Content = new HouseInsurance();
         }
 
+        private void btncarinsurance_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new CarInsurance();
+        }
+
         private void btntravelinsurance_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Content = new TravelInsurance();
-        }
-
-        private void btncontracts_Click(object sender, RoutedEventArgs e)
-        {
-            Window.GetWindow(this).Content = new ContractManagementPage();
         }
 
         private void btndamageevents_Click(object sender, RoutedEventArgs e)
@@ -66,12 +57,18 @@ namespace OpenPage
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Window.GetWindow(this).Close();
+            Application.Current.Shutdown();
         }
 
-        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Ez a metódus üresen marad, mivel csak a RadioButton eseménykezelője
+            if (sender is ComboBox comboBox)
+            {
+                if (comboBox.SelectedItem is ComboBoxItem selectedItem)
+                {
+                    string selectedDamageType = selectedItem.Content.ToString();
+                }
+            }
         }
     }
-}
+} 

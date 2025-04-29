@@ -1,23 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace OpenPage
 {
-    /// <summary>
-    /// Interaction logic for LifeInsurance.xaml
-    /// </summary>
+    
     public partial class LifeInsurance : Page
     {
         public LifeInsurance()
@@ -25,14 +12,54 @@ namespace OpenPage
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void btnHome_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Window.GetWindow(this).Content = new HomePage();
+        }
+
+        private void btncarinsurance_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new CarInsurance();
+        }
+
+        private void btnhouseinsurance_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new HouseInsurance();
+        }
+
+        private void btntravelinsurance_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new TravelInsurance();
+        }
+
+        private void btncontractmanagement_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new ContractManagementPage();
+        }
+
+        private void btndamageevents_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new DamageEventsPage();
+        }
+
+        private void btnsettings_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new SettingsPage();
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).WindowState = WindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Close();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
