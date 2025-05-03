@@ -219,30 +219,33 @@
                                    Foreground="White"
                                    Margin="10,0,0,0"
                                    Grid.Row="1"/>
-
+                        <Button x:Name="btnCreate" Width="70" Click="btnCreate_Click">Létrehozás</Button>
                         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10,10,0,0">
-                            <TextBlock Text="Káresemény megnevezése:"
+                            <TextBlock Text="Káresemény típusa:"
                                      Foreground="White"
                                      Margin="0,0,10,0"
                                        FontSize="15"
                                        
                                      VerticalAlignment="Top"/>
-                            <ComboBox Width="100" 
+                            <ComboBox x:Name="cbtype"
+                                    Width="100" 
                                     Height="25" 
                                     VerticalAlignment="Top" 
                                     HorizontalAlignment="Left" 
                                     SelectionChanged="ComboBox_SelectionChanged" 
                                     SelectedIndex="0">
-                                <ComboBoxItem Content="Autóbaleset"/>
-                                <ComboBoxItem Content="Lakás kár"/>
-                                <ComboBoxItem Content="Utasbiztosítás kár"/>
-                                <ComboBoxItem Content="Egészségügyi kár"/>
-                                <ComboBoxItem Content="Természeti katasztrófa"/>
-                                <ComboBoxItem Content="Lopás"/>
-                                <ComboBoxItem Content="Tűzkár"/>
-                                <ComboBoxItem Content="Vízár"/>
+                             
                             </ComboBox>
+                            <TextBlock Text="Káresemény megnevezése:"
+                                  Foreground="White"
+                                  Margin="0,0,10,0"
+                                    FontSize="15"
+                                  VerticalAlignment="Top"/>
+                            <TextBox x:Name="tbText" Height="25" Width="100"></TextBox>
+                            
                         </StackPanel>
+                        
+                       
                     </Grid>
                 </Grid>
             </Border>

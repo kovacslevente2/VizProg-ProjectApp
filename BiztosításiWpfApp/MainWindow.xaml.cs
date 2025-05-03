@@ -8,18 +8,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BiztositasKezelo;
 
 namespace OpenPage
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    public static class GlobalData
+    {
+        public static int currentUserId { get; set; }
+        public static bool isAdmin { get; set; }
+    }
+
     public partial class MainWindow : Window
     {
+        
+        BiztositoDbContext _context = new BiztositoDbContext();
         public MainWindow()
         {
             InitializeComponent();
         }
+  
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -39,14 +46,19 @@ namespace OpenPage
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string _username = txtUser.Text;
-            string _password = txtPassword.Password;
+            string username = txtUserName.Text;
+            string password = txtPassword.Password;
 
-            //Hitelesítés adatb nélkül
-            if (_username == "admin" && _password == "1234")
+            var user = _context.Felhasznalo.FirstOrDefault(u => u.FelhNev == username);
+            if (user != null && BCrypt.Net.BCrypt.EnhancedVerify(password, user.Jelszo))
             {
                 MessageBox.Show("Sikeres bejelentkezés!", "Üdvözlet", MessageBoxButton.OK, MessageBoxImage.Information);
-                this.Content = new HomePage();
+                GlobalData.currentUserId = user.FelhasznaloId;
+                if (user.Jogosultsag == 1) GlobalData.isAdmin = true;
+                else GlobalData.isAdmin = false;
+
+                if(GlobalData.isAdmin == false) this.Content = new HomePage();
+                else this.Content = new a_HomePage();
             }
             else
             {
@@ -58,6 +70,8 @@ namespace OpenPage
         {
             this.Content = new RegistrationPage();
         }
+
+   
     }
 }
 

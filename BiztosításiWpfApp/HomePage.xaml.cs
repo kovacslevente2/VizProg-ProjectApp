@@ -36,7 +36,7 @@ namespace OpenPage
 
         private void btnhouseinsurance_Click(object sender, RoutedEventArgs e)
         {
-            Window.GetWindow(this).Content = new HouseInsurance();
+            Window.GetWindow(this).Content = new HomeInsurance();
         }
 
         private void btntravelinsurance_Click(object sender, RoutedEventArgs e)

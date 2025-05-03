@@ -214,8 +214,25 @@
                             </Button>
                         </Grid>
                     </Grid>
+
+                    <DockPanel>
+                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" AutoGenerateColumns="false" ColumnWidth="*">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Szerződés Az" Binding="{Binding SzerzodesId}"/>
+                                <DataGridTextColumn Header="Név" Binding="{Binding BiztositoNev}"/>
+                                <DataGridTextColumn Header="Tipus" Binding="{Binding BiztositoTipus}"/>
+                                <DataGridTextColumn Header="Összeg" Binding="{Binding Osszeg}"/>
+                                <DataGridTextColumn Header="Hónap" Binding="{Binding Honap}"/>
+                                <DataGridTextColumn Header="Dátum" Binding="{Binding Datum}"/>
+                              
+                            </DataGrid.Columns>
+                            
+                        </DataGrid>
+                    </DockPanel>
+                    <Button x:Name="bntDelete" Width="50" Height="50" Content="Törlés" Click="bntDelete_Click"/>
                 </Grid>
             </Border>
+            
         </Grid>
     </Border>
 </Page> 
