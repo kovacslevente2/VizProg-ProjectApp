@@ -109,5 +109,10 @@ namespace OpenPage
                 Load();
             }
         }
+
+        private void myDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 } 

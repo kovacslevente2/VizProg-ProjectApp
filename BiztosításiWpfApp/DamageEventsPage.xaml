@@ -219,33 +219,183 @@
                                    Foreground="White"
                                    Margin="10,0,0,0"
                                    Grid.Row="1"/>
-                        <Button x:Name="btnCreate" Width="70" Click="btnCreate_Click">Létrehozás</Button>
-                        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10,10,0,0">
+                        
+                        <StackPanel Grid.Row="2" Margin="10,10,0,0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Row="0">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <TextBlock Text="Káresemény típusa:"
                                      Foreground="White"
                                      Margin="0,0,10,0"
                                        FontSize="15"
-                                       
                                      VerticalAlignment="Top"/>
                             <ComboBox x:Name="cbtype"
-                                    Width="100" 
-                                    Height="25" 
+                                                    Width="160" 
+                                    Height="20" 
+                                                    Margin="50,2,0,10"
                                     VerticalAlignment="Top" 
                                     HorizontalAlignment="Left" 
                                     SelectionChanged="ComboBox_SelectionChanged" 
                                     SelectedIndex="0">
-                             
                             </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Káresemény megnevezése:"
                                   Foreground="White"
-                                  Margin="0,0,10,0"
+                                                  Margin="0,0,10,6"
                                     FontSize="15"
                                   VerticalAlignment="Top"/>
-                            <TextBox x:Name="tbText" Height="25" Width="100"></TextBox>
-                            
+                                        <TextBox x:Name="tbText" 
+                                                Height="20" 
+                                                Width="160"
+                                                VerticalAlignment="Top"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                
+                                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Margin="40,20,0,0">
+                                    <Button x:Name="btnCreate" 
+                                           Width="150" 
+                                           Height="30" 
+                                           Click="btnCreate_Click"
+                                           Content="Káresemény jelentése"
+                                           Margin="0,0,0,20"
+                                           Foreground="White"
+                                           FontWeight="Bold"
+                                           Cursor="Hand">
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Background" Value="#0055ff"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="LightBlue"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}"
+                                                        CornerRadius="5"
+                                                        BorderThickness="0">
+                                                    <ContentPresenter HorizontalAlignment="Center"
+                                                                      VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
                         </StackPanel>
                         
-                       
+                        <ScrollViewer Grid.Row="2" Margin="10,150,10,0" VerticalScrollBarVisibility="Auto">
+                            <StackPanel>
+                                <TextBlock Text="Káreseményi Tippek"
+                                         FontSize="20"
+                                         Foreground="White"
+                                         FontWeight="Bold"
+                                         Margin="0,0,0,20"/>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                        <Border Background="#4a78f9" 
+                                                CornerRadius="10" 
+                                                Margin="0,0,0,10"
+                                                Padding="15">
+                                            <StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                                    <fa:IconImage Icon="CircleExclamation" 
+                                                                Foreground="White" 
+                                                                Width="20" 
+                                                                Height="20"/>
+                                                    <TextBlock Text="Káresemény Bejelentése" 
+                                                             Foreground="White" 
+                                                             FontWeight="Bold" 
+                                                             Margin="5,0,0,0"/>
+                                                </StackPanel>
+                                                <TextBlock Text="Káresemény esetén azonnal jelezd a biztosítónak"
+                                                         Foreground="White"
+                                                         TextWrapping="Wrap"/>
+                                            </StackPanel>
+                                        </Border>
+
+                                        <Border Background="#4a78f9" 
+                                                CornerRadius="10" 
+                                                Margin="0,0,0,10"
+                                                Padding="15">
+                                            <StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                                    <fa:IconImage Icon="Camera" 
+                                                                Foreground="White" 
+                                                                Width="20" 
+                                                                Height="20"/>
+                                                    <TextBlock Text="Dokumentálás" 
+                                                             Foreground="White" 
+                                                             FontWeight="Bold" 
+                                                             Margin="5,0,0,0"/>
+                                                </StackPanel>
+                                                <TextBlock Text="Készíts fényképeket és videókat a kárról"
+                                                         Foreground="White"
+                                                         TextWrapping="Wrap"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                        <Border Background="#4a78f9" 
+                                                CornerRadius="10" 
+                                                Margin="0,0,0,10"
+                                                Padding="15">
+                                            <StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                                    <fa:IconImage Icon="FileLines" 
+                                                                Foreground="White" 
+                                                                Width="20" 
+                                                                Height="20"/>
+                                                    <TextBlock Text="Nyilvántartás" 
+                                                             Foreground="White" 
+                                                             FontWeight="Bold" 
+                                                             Margin="5,0,0,0"/>
+                                                </StackPanel>
+                                                <TextBlock Text="Tartsd nyilván a káreseményhez kapcsolódó dokumentumokat"
+                                                         Foreground="White"
+                                                         TextWrapping="Wrap"/>
+                                            </StackPanel>
+                                        </Border>
+
+                                        <Border Background="#4a78f9" 
+                                                CornerRadius="10" 
+                                                Margin="0,0,0,10"
+                                                Padding="15">
+                                            <StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                                    <fa:IconImage Icon="Phone" 
+                                                                Foreground="White" 
+                                                                Width="20" 
+                                                                Height="20"/>
+                                                    <TextBlock Text="Kapcsolattartás" 
+                                                             Foreground="White" 
+                                                             FontWeight="Bold" 
+                                                             Margin="5,0,0,0"/>
+                                                </StackPanel>
+                                                <TextBlock Text="Tartsd fenn a kapcsolatot a biztosítóval a kárkezelés során"
+                                                         Foreground="White"
+                                                         TextWrapping="Wrap"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ScrollViewer>
                     </Grid>
                 </Grid>
             </Border>

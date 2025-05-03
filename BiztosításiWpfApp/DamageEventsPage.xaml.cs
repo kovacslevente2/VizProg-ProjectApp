@@ -33,10 +33,10 @@ namespace OpenPage
 
             for (int i = 0; i < types.Count; i++)
             {
-                if (types[i] == "elet") cbtype.Items.Add(names[i] +"-Élet biztosítás");
-                if (types[i] == "auto") cbtype.Items.Add(names[i] + "-Autó biztosítás");
-                if (types[i] == "lakas") cbtype.Items.Add(names[i] + "-Lakás biztosítás");
-                if (types[i] == "utas") cbtype.Items.Add(names[i] + "-Utas biztosítás");
+                if (types[i] == "elet") cbtype.Items.Add(names[i] + "-Ã‰let biztosÃ­tÃ¡s");
+                if (types[i] == "auto") cbtype.Items.Add(names[i] + "-AutÃ³ biztosÃ­tÃ¡s");
+                if (types[i] == "lakas") cbtype.Items.Add(names[i] + "-LakÃ¡s biztosÃ­tÃ¡s");
+                if (types[i] == "utas") cbtype.Items.Add(names[i] + "-Utas biztosÃ­tÃ¡s");
             }
          
 
@@ -125,7 +125,7 @@ namespace OpenPage
             };
             _context.Karesemeny.Add(dam);
             _context.SaveChanges();
-            MessageBox.Show("Sikeres káresemény hozzáadás!", "Sikeres mûvelet", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Sikeres kÃ¡resemÃ©ny hozzÃ¡adÃ¡s!", "Sikeres mÅ±velet", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 } 

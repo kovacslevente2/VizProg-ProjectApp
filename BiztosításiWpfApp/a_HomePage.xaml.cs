@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OpenPage;  // MainWindow osztály névtere
 
 namespace BiztositasKezelo
 {
@@ -24,5 +25,29 @@ namespace BiztositasKezelo
         {
             InitializeComponent();
         }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).WindowState = WindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Close();
+        }
+
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Window.GetWindow(this).Close();
+        }
+
+        private void myDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
+        }
+
+       
     }
 }

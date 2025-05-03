@@ -216,7 +216,65 @@
                     </Grid>
 
                     <DockPanel>
-                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" AutoGenerateColumns="false" ColumnWidth="*">
+
+                        <Button x:Name="bntDelete" Width="400" Height="50" Content="Biztosítás megszüntetése" Click="bntDelete_Click"
+    DockPanel.Dock="Bottom"
+       
+        Foreground="White"
+        FontWeight="Bold"
+        Margin="10,20"
+        Cursor="Hand">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#0055ff"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="LightBlue"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}"
+                    CornerRadius="5"
+                    BorderThickness="0">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" AutoGenerateColumns="false" ColumnWidth="*"
+                                                      Background="#4a78f9"
+                    Foreground="Black"
+                                  RowBackground="#ffffff"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    FontFamily="Montserrat"
+                      CanUserAddRows="False"
+              CanUserDeleteRows="False"
+              CanUserResizeRows="False"
+        
+        HorizontalGridLinesBrush="#3A3A3A"
+        VerticalGridLinesBrush="#3A3A3A"
+        HeadersVisibility="Column"
+                    Margin="30" SelectionChanged="myDataGrid_SelectionChanged"
+                                  
+                                  >
+
+
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#0055ff"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="Padding" Value="10,5"/>
+                                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                    <Setter Property="BorderBrush" Value="#3A3A3A"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Szerződés Az" Binding="{Binding SzerzodesId}"/>
                                 <DataGridTextColumn Header="Név" Binding="{Binding BiztositoNev}"/>
@@ -224,15 +282,15 @@
                                 <DataGridTextColumn Header="Összeg" Binding="{Binding Osszeg}"/>
                                 <DataGridTextColumn Header="Hónap" Binding="{Binding Honap}"/>
                                 <DataGridTextColumn Header="Dátum" Binding="{Binding Datum}"/>
-                              
+
                             </DataGrid.Columns>
-                            
+
                         </DataGrid>
                     </DockPanel>
-                    <Button x:Name="bntDelete" Width="50" Height="50" Content="Törlés" Click="bntDelete_Click"/>
+
                 </Grid>
             </Border>
-            
+
         </Grid>
     </Border>
 </Page> 

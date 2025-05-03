@@ -66,7 +66,7 @@ namespace OpenPage
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // TODO: Implement selection changed logic
+            
         }
 
         private void btnContract_Click(object sender, RoutedEventArgs e)

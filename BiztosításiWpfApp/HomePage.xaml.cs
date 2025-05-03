@@ -73,5 +73,12 @@ namespace OpenPage
         {
             // Ez a metódus üresen marad, mivel csak a RadioButton eseménykezelője
         }
+
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Window.GetWindow(this).Close();
+        }
     }
 }

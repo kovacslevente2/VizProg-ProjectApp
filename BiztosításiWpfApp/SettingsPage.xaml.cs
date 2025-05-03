@@ -59,5 +59,11 @@ namespace OpenPage
         {
             Application.Current.Shutdown();
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+           
+            MessageBox.Show("A beállítások mentése sikeres!", "Siker", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 } 
