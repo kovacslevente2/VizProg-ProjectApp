@@ -9,7 +9,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BiztositasKezelo;
+using BiztositasKezelo.Context_classes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualBasic.ApplicationServices;
 using static OpenPage.MainWindow;
 
 namespace OpenPage
@@ -20,7 +23,7 @@ namespace OpenPage
         public RegistrationPage()
         {
             InitializeComponent();
-    }
+        }
 
         
 
@@ -35,10 +38,22 @@ namespace OpenPage
             string birthDate = dpBirthDate.Text;
             string city=txtCity.Text;
 
-            if (string.IsNullOrWhiteSpace(username) || 
-                string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmPassword))
+            var users = _context.Felhasznalo
+                                .Where(i => i.FelhNev == username)
+                                .Select(i => i.FelhNev)
+                                .ToList();
+
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) ||
+                string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(confirmPassword) ||
+                string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(birthDate) ||
+                string.IsNullOrWhiteSpace(city))
             {
                 MessageBox.Show("Kérjük, töltse ki az összes mezőt!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if(!users.IsNullOrEmpty()) {
+                MessageBox.Show("A felhasználónév már foglalt!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -71,9 +86,14 @@ namespace OpenPage
             _context.SaveChanges();
 
             MessageBox.Show("Sikeres regisztráció!", "Siker", MessageBoxButton.OK, MessageBoxImage.Information);
-
-
-           
+            Logger.Log("Regisztrálás, felhasználónév: "+username);
+            txtNewUser.Text="";
+            txtNewPassword.Password = "";
+            txtConfirmPassword.Password="";
+            txtLastName.Text = "";
+            txtFirstName.Text = "";
+            dpBirthDate.Text = "";
+            txtCity.Text = "";
         }
 
         private void btnBackToLogin_Click(object sender, RoutedEventArgs e)

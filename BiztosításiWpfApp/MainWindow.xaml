@@ -237,7 +237,7 @@
 
                         <Button x:Name="btnRegistration"
                                 BorderThickness="0"
-                                Content="Regisztrálás"
+                                Content="Regisztráció"
                                 Foreground="White"
                                 FontSize="12"
                                 FontFamily="Montserrat"

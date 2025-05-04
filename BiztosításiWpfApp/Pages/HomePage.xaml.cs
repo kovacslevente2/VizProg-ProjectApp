@@ -1,27 +1,40 @@
-using System;
+ï»¿using System;
 using System.Windows;
 using System.Windows.Controls;
-using BiztositasKezelo;
+using BiztositasKezelo.Context_classes;
 
 namespace OpenPage
 {
-    public partial class HomeInsurance : Page
+
+    public partial class HomePage : Page
     {
         BiztositoDbContext _context = new BiztositoDbContext();
-        public HomeInsurance()
+        public HomePage()
         {
             InitializeComponent();
-            List<string> insurers;
-            insurers = _context.Biztosito
-                                .Where(i => i.Tipus == "lakas")
-                                .Select(i => i.Nev)
-                                .ToList();
-            cbInsurer.ItemsSource = insurers;
+            Load();
+        }
+
+        public void Load()
+        {
+            var query = from f in _context.Felhasznalo
+                        join s in _context.Szemely on f.FelhasznaloId equals s.FelhId
+                        where f.FelhasznaloId == GlobalData.currentUserId
+                        select new { f, s };
+
+            var veznev = query.Select(x => x.s.Veznev).FirstOrDefault();
+            var utonev = query.Select(x => x.s.Utonev).FirstOrDefault();
+            tbWelcome.Text = "ÃœdvÃ¶zÃ¶ljÃ¼k " + veznev + " " + utonev + "!";
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Content = new HomePage();
+        }
+
+        private void btncontractmanagement_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new ContractManagementPage();
         }
 
         private void btnlifeinsurance_Click(object sender, RoutedEventArgs e)
@@ -34,12 +47,17 @@ namespace OpenPage
             Window.GetWindow(this).Content = new CarInsurance();
         }
 
+        private void btnhouseinsurance_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Content = new HomeInsurance();
+        }
+
         private void btntravelinsurance_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Content = new TravelInsurance();
         }
 
-        private void btncontractmanagement_Click(object sender, RoutedEventArgs e)
+        private void btncontracts_Click(object sender, RoutedEventArgs e)
         {
             Window.GetWindow(this).Content = new ContractManagementPage();
         }
@@ -64,30 +82,22 @@ namespace OpenPage
             Window.GetWindow(this).Close();
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
         {
-            
+           
         }
 
-        private void btnContract_Click(object sender, RoutedEventArgs e)
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
         {
-            var user = _context.Felhasznalo.FirstOrDefault(u => u.FelhasznaloId == GlobalData.currentUserId);
-            var insurer = _context.Biztosito.FirstOrDefault(u => u.Nev == cbInsurer.Text);
-            string amount = tbAmount.Text;
-            int month = int.Parse(tbMonth.Text);
-            DateOnly dateNow = DateOnly.FromDateTime(DateTime.Now);
+            GlobalData.currentUserId = 0;
+            GlobalData.isAdmin = false;
 
-            var szerz = new Szerzodes
-            {
-                Osszeg = amount,
-                Datum = dateNow,
-                Honap = month,
-                Bizt = insurer,
-                Felh = user
-            };
-            _context.Szerzodes.Add(szerz);
-            _context.SaveChanges();
-            MessageBox.Show("Sikeres szerzõdés kötés!", "Sikeres mûvelet", MessageBoxButton.OK, MessageBoxImage.Information);
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Window.GetWindow(this).Close();
         }
+
+      
+
     }
-} 
+}

@@ -1,15 +1,13 @@
-<Page x:Class="OpenPage.DamageEventsPage"
+﻿<Page x:Class="OpenPage.LifeInsurance"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
       xmlns:local="clr-namespace:OpenPage"
-      xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Káresemények">
+      Title="LifeInsurance">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -21,8 +19,8 @@
     </Page.Resources>
 
     <Border CornerRadius="10"
-            BorderThickness="1"
-            Opacity="1">
+BorderThickness="1"
+ Opacity="1">
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="Bisque" Offset="0"/>
@@ -63,9 +61,8 @@
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}"
-                                 Click="btncontractmanagement_Click">
+                    <RadioButton x:Name="btncontractmanagement" Click="btncontractmanagement_Click" Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color1}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="AddressBook" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Szerződések kezelése" Style="{StaticResource menuButtonText}"/>
@@ -73,8 +70,8 @@
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}"
-                                 Click="btnlifeinsurance_Click">
+             Tag="{StaticResource color1}"
+             IsChecked="True">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Heart" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Életbiztosítás" Style="{StaticResource menuButtonText}"/>
@@ -82,17 +79,16 @@
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}"
-                                 Click="btnhouseinsurance_Click">
+Tag="{StaticResource color1}"
+Click="btnhouseinsurance_Click">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="HouseChimneyUser" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Lakásbiztosítás" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}"
-                                 Click="btncarinsurance_Click">
+Tag="{StaticResource color1}"
+Click="btncarinsurance_Click">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Car" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Autóbiztosítás" Style="{StaticResource menuButtonText}"/>
@@ -100,27 +96,24 @@
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}"
-                                 Click="btntravelinsurance_Click">
+Tag="{StaticResource color1}"
+Click="btntravelinsurance_Click">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Plane" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Utasbiztosítás" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}"
-                                 Click="btndamageevents_Click"
-                                 IsChecked="True">
+                    <RadioButton x:Name="btndamageevents" Click="btndamageevents_Click" Style="{StaticResource menuButton}"
+             Tag="{StaticResource color1}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="CircleExclamation" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Káresemények" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}"
-                                 Click="btnsettings_Click">
+                    <RadioButton x:Name="btnsettings" Click="btnsettings_Click" Style="{StaticResource menuButton}"
+Tag="{StaticResource color1}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Gear" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Beállítások" Style="{StaticResource menuButtonText}"/>
@@ -214,87 +207,71 @@
                             </Button>
                         </Grid>
 
-                        <TextBlock Text="Káresemények"
+                        <TextBlock Text="Életbiztosítás"
                                    FontSize="20"
                                    Foreground="White"
                                    Margin="10,0,0,0"
                                    Grid.Row="1"/>
-                        
-                        <StackPanel Grid.Row="2" Margin="10,10,0,0">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="2" Margin="10,0,0,0">
 
-                                <StackPanel Grid.Row="0">
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <TextBlock Text="Káresemény típusa:"
-                                     Foreground="White"
-                                     Margin="0,0,10,0"
-                                       FontSize="15"
-                                     VerticalAlignment="Top"/>
-                            <ComboBox x:Name="cbtype"
-                                                    Width="160" 
-                                    Height="20" 
-                                                    Margin="50,2,0,10"
-                                    VerticalAlignment="Top" 
-                                    HorizontalAlignment="Left" 
-                                    SelectionChanged="ComboBox_SelectionChanged" 
-                                    SelectedIndex="0">
-                            </ComboBox>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Káresemény megnevezése:"
-                                  Foreground="White"
-                                                  Margin="0,0,10,6"
-                                    FontSize="15"
-                                  VerticalAlignment="Top"/>
-                                        <TextBox x:Name="tbText" 
-                                                Height="20" 
-                                                Width="160"
-                                                VerticalAlignment="Top"/>
-                                    </StackPanel>
-                                </StackPanel>
-                                
-                                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Margin="40,20,0,0">
-                                    <Button x:Name="btnCreate" 
-                                           Width="150" 
-                                           Height="30" 
-                                           Click="btnCreate_Click"
-                                           Content="Káresemény jelentése"
-                                           Margin="0,0,0,20"
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <TextBlock Text ="Válasszon biztosítót" 
+                                           FontSize="15"
                                            Foreground="White"
-                                           FontWeight="Bold"
-                                           Cursor="Hand">
-                                        <Button.Style>
-                                            <Style TargetType="Button">
-                                                <Setter Property="Background" Value="#0055ff"/>
-                                                <Style.Triggers>
-                                                    <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="LightBlue"/>
-                                                    </Trigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </Button.Style>
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="{TemplateBinding Background}"
-                                                        CornerRadius="5"
-                                                        BorderThickness="0">
-                                                    <ContentPresenter HorizontalAlignment="Center"
-                                                                      VerticalAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </StackPanel>
-                            </Grid>
+                                           VerticalAlignment="Top"/>
+                                <ComboBox x:Name="cbInsurer" Width="100" Height="23" Margin="10,0,0,5" VerticalAlignment="Top" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" />
+                            </StackPanel>
+
+                            <StackPanel
+                            Orientation="Horizontal" x:Name="stack2" Margin="0,10,0,0">
+                                <TextBlock
+                            VerticalAlignment="Top" Text="Hónapok száma:" Margin="0,0,10,0" FontSize="15" Foreground="White"/>
+                                <TextBox
+                            Width="100" VerticalAlignment="Top" x:Name="tbMonth" Margin="20,0,0,5" Height="20"/>
+                            </StackPanel>
+
+                            <StackPanel x:Name="stack1" Orientation="Horizontal" Margin="0,10,0,0">
+                                <TextBlock
+                                VerticalAlignment="Top" Text="Havi Összeg (Ft):" Margin="0,0,0,0" FontSize="15" Foreground="White"/>
+                                <TextBox Width="100" VerticalAlignment="Top"  x:Name="tbAmount" Margin="30,4,0,0" Height="20"
+                              />
+                            </StackPanel>
+                            <Button x:Name="btnContract" 
+                                       Content="Biztosítás megkötése"  
+                                       Width="150" 
+                                       Height="30" 
+                                       Margin="0,20,160,0"
+                                       Click="btnContract_Click"
+                                       Foreground="White"
+                                       FontWeight="Bold"
+                                       Cursor="Hand">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="#0055ff"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="LightBlue"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}"
+                                                CornerRadius="5"
+                                                BorderThickness="0">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
                         </StackPanel>
-                        
+
                         <ScrollViewer Grid.Row="2" Margin="10,150,10,0" VerticalScrollBarVisibility="Auto">
                             <StackPanel>
-                                <TextBlock Text="Káreseményi Tippek"
+                                <TextBlock Text="Életbiztosítási Tippek"
                                          FontSize="20"
                                          Foreground="White"
                                          FontWeight="Bold"
@@ -313,16 +290,16 @@
                                                 Padding="15">
                                             <StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                                                    <fa:IconImage Icon="CircleExclamation" 
+                                                    <fa:IconImage Icon="Heart" 
                                                                 Foreground="White" 
                                                                 Width="20" 
                                                                 Height="20"/>
-                                                    <TextBlock Text="Káresemény Bejelentése" 
+                                                    <TextBlock Text="Alap Életbiztosítás" 
                                                              Foreground="White" 
                                                              FontWeight="Bold" 
                                                              Margin="5,0,0,0"/>
                                                 </StackPanel>
-                                                <TextBlock Text="Káresemény esetén azonnal jelezd a biztosítónak"
+                                                <TextBlock Text="Alapvető életbiztosítási fedezet a családod számára"
                                                          Foreground="White"
                                                          TextWrapping="Wrap"/>
                                             </StackPanel>
@@ -334,16 +311,16 @@
                                                 Padding="15">
                                             <StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                                                    <fa:IconImage Icon="Camera" 
+                                                    <fa:IconImage Icon="Stethoscope" 
                                                                 Foreground="White" 
                                                                 Width="20" 
                                                                 Height="20"/>
-                                                    <TextBlock Text="Dokumentálás" 
+                                                    <TextBlock Text="Betegségbiztosítás" 
                                                              Foreground="White" 
                                                              FontWeight="Bold" 
                                                              Margin="5,0,0,0"/>
                                                 </StackPanel>
-                                                <TextBlock Text="Készíts fényképeket és videókat a kárról"
+                                                <TextBlock Text="Kiterjedt betegségbiztosítási fedezet"
                                                          Foreground="White"
                                                          TextWrapping="Wrap"/>
                                             </StackPanel>
@@ -357,37 +334,16 @@
                                                 Padding="15">
                                             <StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                                                    <fa:IconImage Icon="FileLines" 
+                                                    <fa:IconImage Icon="UserInjured" 
                                                                 Foreground="White" 
                                                                 Width="20" 
                                                                 Height="20"/>
-                                                    <TextBlock Text="Nyilvántartás" 
+                                                    <TextBlock Text="Balesetbiztosítás" 
                                                              Foreground="White" 
                                                              FontWeight="Bold" 
                                                              Margin="5,0,0,0"/>
                                                 </StackPanel>
-                                                <TextBlock Text="Tartsd nyilván a káreseményhez kapcsolódó dokumentumokat"
-                                                         Foreground="White"
-                                                         TextWrapping="Wrap"/>
-                                            </StackPanel>
-                                        </Border>
-
-                                        <Border Background="#4a78f9" 
-                                                CornerRadius="10" 
-                                                Margin="0,0,0,10"
-                                                Padding="15">
-                                            <StackPanel>
-                                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                                                    <fa:IconImage Icon="Phone" 
-                                                                Foreground="White" 
-                                                                Width="20" 
-                                                                Height="20"/>
-                                                    <TextBlock Text="Kapcsolattartás" 
-                                                             Foreground="White" 
-                                                             FontWeight="Bold" 
-                                                             Margin="5,0,0,0"/>
-                                                </StackPanel>
-                                                <TextBlock Text="Tartsd fenn a kapcsolatot a biztosítóval a kárkezelés során"
+                                                <TextBlock Text="Balesetbiztosítási fedezet a mindennapi életben"
                                                          Foreground="White"
                                                          TextWrapping="Wrap"/>
                                             </StackPanel>
@@ -401,4 +357,4 @@
             </Border>
         </Grid>
     </Border>
-</Page> 
+</Page>

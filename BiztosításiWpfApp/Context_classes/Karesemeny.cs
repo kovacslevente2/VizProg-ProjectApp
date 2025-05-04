@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BiztositasKezelo;
+namespace BiztositasKezelo.Context_classes;
 
 public partial class Karesemeny
 {

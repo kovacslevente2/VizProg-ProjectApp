@@ -217,7 +217,7 @@ Tag="{StaticResource color1}"
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="Üdvözöljük!"
+                            <TextBlock x:Name="tbWelcome"
                                      FontSize="20"
                                      Foreground="White"
                                      Margin="10,0,0,0"/>

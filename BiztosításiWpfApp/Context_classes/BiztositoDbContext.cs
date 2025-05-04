@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace BiztositasKezelo;
+namespace BiztositasKezelo.Context_classes;
 
 public partial class BiztositoDbContext : DbContext
 {
@@ -26,7 +26,7 @@ public partial class BiztositoDbContext : DbContext
     public DbSet<Szerzodes> Szerzodes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-32RH7AD\\SQLEXPRESS;Initial Catalog=Biztosito_db;Integrated Security=True;Trust Server Certificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=LAPTOP-MGUV9SMU\\SQLEXPRESS;Initial Catalog=Biztosito_db;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -224,7 +224,7 @@ Tag="{StaticResource color1}">
                                            FontSize="15"
                                            Foreground="White"
                                            VerticalAlignment="Top"/>
-                                    <ComboBox x:Name="cbInsurer" Width="100" Height="20" Margin="10,0,0,5" VerticalAlignment="Top" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" >
+                                    <ComboBox x:Name="cbInsurer" Width="100" Height="23" Margin="10,0,0,5" VerticalAlignment="Top" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" >
                                        
                                     </ComboBox>
                                 </StackPanel>
@@ -242,17 +242,17 @@ Tag="{StaticResource color1}">
                                     
                                 </StackPanel>
                                 <StackPanel x:Name="stack1" Orientation="Horizontal" Margin="0,10,0,0">
-                                    <TextBlock Text="Havi Összeg:" 
+                                    <TextBlock Text="Havi Összeg (Ft):" 
                                              FontSize="15"
                                              Foreground="White"
                                              VerticalAlignment="Top"
-                                             Margin="0,0,10,0"/>
+                                             Margin="0,0,0,0"/>
                                     <TextBox x:Name="tbAmount" 
                                             Width="100" 
                                             Height="20"
-                                            Margin="45,4,0,0"
+                                            Margin="30,4,0,0"
                                             VerticalAlignment="Top"
-                                            Text="0"/>
+                                           />
                                 </StackPanel>
                             </StackPanel>
 

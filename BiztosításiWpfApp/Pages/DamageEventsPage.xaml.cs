@@ -2,8 +2,10 @@ using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using BiztositasKezelo;
+using BiztositasKezelo.Context_classes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.ApplicationServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace OpenPage
 {
@@ -13,8 +15,11 @@ namespace OpenPage
         public DamageEventsPage()
         {
             InitializeComponent();
+            Load();
+        }
 
-
+        public void Load()
+        {
             List<string> types;
             types = _context.Szerzodes
                 .Join(_context.Felhasznalo, szerzodes => szerzodes.FelhId, felhasznalo => felhasznalo.FelhasznaloId,
@@ -38,8 +43,6 @@ namespace OpenPage
                 if (types[i] == "lakas") cbtype.Items.Add(names[i] + "-Lakás biztosítás");
                 if (types[i] == "utas") cbtype.Items.Add(names[i] + "-Utas biztosítás");
             }
-         
-
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
@@ -105,6 +108,12 @@ namespace OpenPage
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
+
+            if (string.IsNullOrWhiteSpace(tbText.Text))
+            {
+                MessageBox.Show("Kérjük, töltse ki a megnevezés mezőt!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             string cbtext = cbtype.Text;
             string[] strings = cbtext.Split('-');
             var InsId = _context.Biztosito
@@ -126,6 +135,8 @@ namespace OpenPage
             _context.Karesemeny.Add(dam);
             _context.SaveChanges();
             MessageBox.Show("Sikeres káresemény hozzáadás!", "Sikeres művelet", MessageBoxButton.OK, MessageBoxImage.Information);
+            Logger.Log("Káresemény bejelentés, ID: " + GlobalData.currentUserId);
+            tbText.Text = "";
         }
     }
 } 

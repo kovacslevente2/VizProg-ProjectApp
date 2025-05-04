@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,9 +10,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BiztositasKezelo;
+using BiztositasKezelo.Context_classes;
 
 namespace OpenPage
 {
+    public class Logger
+    {
+        private static string logFilePath = "C://Users/istva/source/repos/VizProg-ProjectApp/BiztositasKezelo/log.txt";
+        public static void Log(string message)
+        {
+            using (StreamWriter writer = new StreamWriter(logFilePath, true))
+            {
+                writer.WriteLine($"{DateTime.Now}: {message}");
+            }
+        }
+    }
+
+    
+
     public static class GlobalData
     {
         public static int currentUserId { get; set; }
@@ -49,16 +65,24 @@ namespace OpenPage
             string username = txtUserName.Text;
             string password = txtPassword.Password;
 
+            if (string.IsNullOrWhiteSpace(username) ||
+              string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Kérjük, töltse ki az összes mezőt!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             var user = _context.Felhasznalo.FirstOrDefault(u => u.FelhNev == username);
             if (user != null && BCrypt.Net.BCrypt.EnhancedVerify(password, user.Jelszo))
             {
                 MessageBox.Show("Sikeres bejelentkezés!", "Üdvözlet", MessageBoxButton.OK, MessageBoxImage.Information);
                 GlobalData.currentUserId = user.FelhasznaloId;
+                Logger.Log("Bejelentkezés, ID: "+GlobalData.currentUserId);
                 if (user.Jogosultsag == 1) GlobalData.isAdmin = true;
                 else GlobalData.isAdmin = false;
 
                 if(GlobalData.isAdmin == false) this.Content = new HomePage();
-                else this.Content = new a_HomePage();
+                else this.Content = new admin_HomePage();
             }
             else
             {

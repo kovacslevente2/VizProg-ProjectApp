@@ -1,10 +1,10 @@
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using BiztositasKezelo;
+using BiztositasKezelo.Context_classes;
 
 namespace OpenPage
-{   
+{
     public partial class ContractManagementPage : Page
     {
         
@@ -23,11 +23,11 @@ namespace OpenPage
                .Join(_context.Biztosito, temp => temp.Szerzodes.BiztId, biztosito => biztosito.BiztositoId,
                      (temp, biztosito) => new
                      {
-                         temp.Szerzodes, // Megõrizzük a teljes Szerzodes objektumot
-                         temp.Felhasznalo, // Megõrizzük a teljes Felhasznalo objektumot
-                         Biztosito = biztosito // Biztosito objektumot is tároljuk
+                         temp.Szerzodes, 
+                         temp.Felhasznalo, 
+                         Biztosito = biztosito 
                      })
-               .Where(temp => temp.Felhasznalo.FelhasznaloId == GlobalData.currentUserId) // Szûrés az aktuális felhasználóra
+               .Where(temp => temp.Felhasznalo.FelhasznaloId == GlobalData.currentUserId) 
                .Select(temp => new
                {
                    SzerzodesId = temp.Szerzodes.SzerzodesId,
@@ -106,6 +106,7 @@ namespace OpenPage
                 var deleteContract = _context.Szerzodes.Where(m => m.SzerzodesId == contract_Id).Single();
                 _context.Szerzodes.Remove(deleteContract);
                 _context.SaveChanges();
+                Logger.Log("Szerzõdés törlés, ID: " + GlobalData.currentUserId);
                 Load();
             }
         }

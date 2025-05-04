@@ -2,7 +2,9 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using BiztositasKezelo;
+using BiztositasKezelo.Context_classes;
 using Microsoft.EntityFrameworkCore;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace OpenPage
 {
@@ -12,6 +14,10 @@ namespace OpenPage
         public CarInsurance()
         {
             InitializeComponent();
+            Load();
+        }
+
+        public void Load() {
             List<string> insurers;
             insurers = _context.Biztosito
                                 .Where(i => i.Tipus == "auto")
@@ -77,23 +83,52 @@ namespace OpenPage
 
         private void btnContract_Click(object sender, RoutedEventArgs e)
         {
-            var user = _context.Felhasznalo.FirstOrDefault(u => u.FelhasznaloId == GlobalData.currentUserId);
-            var insurer = _context.Biztosito.FirstOrDefault(u => u.Nev == cbInsurer.Text);
-            string amount = tbAmount.Text;
-            int month = int.Parse(tbMonth.Text);
-            DateOnly dateNow = DateOnly.FromDateTime(DateTime.Now);
-
-            var szerz = new Szerzodes
+            if (string.IsNullOrWhiteSpace(tbAmount.Text) ||
+              string.IsNullOrWhiteSpace(tbMonth.Text))
             {
-                Osszeg = amount,
-                Datum = dateNow,
-                Honap = month,
-                Bizt = insurer,
-                Felh = user
-            };
-            _context.Szerzodes.Add(szerz);
-            _context.SaveChanges();
-            MessageBox.Show("Sikeres szerzõdés kötés!", "Sikeres mûvelet", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Kérjük, töltse ki az összes mezõt!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            int number;
+            if (int.TryParse(tbAmount.Text, out number) && int.TryParse(tbMonth.Text, out number))
+            {
+                if (int.Parse(tbAmount.Text) < 5000) {
+                    MessageBox.Show("Az összegnek minimum 5000 Ft-nak kell lennie!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                if (int.Parse(tbMonth.Text) < 3)
+                {
+                    MessageBox.Show("Az hónapok számának minimum 3-nak kell lennie!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                var user = _context.Felhasznalo.FirstOrDefault(u => u.FelhasznaloId == GlobalData.currentUserId);
+                var insurer = _context.Biztosito.FirstOrDefault(u => u.Nev == cbInsurer.Text);
+                string amount = tbAmount.Text;
+                int month = int.Parse(tbMonth.Text);
+                DateOnly dateNow = DateOnly.FromDateTime(DateTime.Now);
+
+                var szerz = new Szerzodes
+                {
+                    Osszeg = amount,
+                    Datum = dateNow,
+                    Honap = month,
+                    Bizt = insurer,
+                    Felh = user
+                };
+                _context.Szerzodes.Add(szerz);
+                _context.SaveChanges();
+                MessageBox.Show("Sikeres szerzõdés kötés!", "Sikeres mûvelet", MessageBoxButton.OK, MessageBoxImage.Information);
+                Logger.Log("Szerzõdés kötés (autó biztosítás), ID: " + GlobalData.currentUserId);
+                tbAmount.Text = "";
+                tbMonth.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("A mezõkbe csak számértéket adhat meg!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+
+
     }
 } 

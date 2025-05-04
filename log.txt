@@ -1,0 +1,9 @@
+2025. 05. 04. 11:58:34: Bejelentkezés, ID: 5
+2025. 05. 04. 12:06:51: Bejelentkezés, ID: 5
+2025. 05. 04. 12:07:07: Szerződés kötés (utasbiztosítás), ID: 5
+2025. 05. 04. 12:08:27: Bejelentkezés, ID: 5
+2025. 05. 04. 12:10:23: Bejelentkezés, ID: 5
+2025. 05. 04. 12:11:21: Bejelentkezés, ID: 5
+2025. 05. 04. 12:25:21: Bejelentkezés, ID: 5
+2025. 05. 04. 12:25:29: Bejelentkezés, ID: 5
+2025. 05. 04. 12:25:39: Szerződés kötés (lakásbiztosítás), ID: 5
