@@ -16,7 +16,7 @@ namespace OpenPage
 {
     public class Logger
     {
-        private static string logFilePath = "C://Users/istva/source/repos/VizProg-ProjectApp/BiztositasKezelo/log.txt";
+        private static string logFilePath = "C://Users/istva/source/repos/VizProg-ProjectApp/BiztositasKezelo-FinalVersion/log.txt";
         public static void Log(string message)
         {
             using (StreamWriter writer = new StreamWriter(logFilePath, true))

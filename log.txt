@@ -7,3 +7,4 @@
 2025. 05. 04. 12:25:21: Bejelentkezés, ID: 5
 2025. 05. 04. 12:25:29: Bejelentkezés, ID: 5
 2025. 05. 04. 12:25:39: Szerződés kötés (lakásbiztosítás), ID: 5
+2025. 05. 04. 12:40:36: Bejelentkezés, ID: 6
